@@ -3,878 +3,528 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expérience Visuelle Époustouflante</title>
+    <title>Supportez ma Passion pour les Chats et le Jardinage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Reset et base */
+        /* Reset et Base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-
-        :root {
-            --primary: #6c5ce7;
-            --secondary: #00cec9;
-            --dark: #2d3436;
-            --light: #f5f6fa;
-            --accent: #fd79a8;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
         }
 
         body {
-            background-color: var(--dark);
-            color: var(--light);
-            overflow-x: hidden;
-            perspective: 1000px;
-        }
-
-        /* Animations de base */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes colorShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Layout principal */
-        .container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        /* Particules de fond */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: float 15s infinite ease-in-out;
-        }
-
-        /* Header stylé */
-        header {
-            padding: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: pulse 4s infinite;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 600;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero section */
-        .hero {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            padding: 0 5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            background: linear-gradient(to right, var(--light), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            opacity: 0.9;
+            color: #333;
+            background-color: #f9f9f9;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--gradient);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .hero-image {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50%;
-            max-width: 700px;
-            z-index: 1;
-            animation: float 6s infinite ease-in-out;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
-        }
-
-        /* Section features */
-        .features {
-            padding: 5rem;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            position: relative;
-        }
-
-        .features::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
-            opacity: 0.3;
-        }
-
-        .section-title {
+        /* En-tête */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            margin-bottom: 4rem;
-            font-size: 2.5rem;
-            font-family: 'Playfair Display', serif;
+            color: white;
             position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
-        .section-title::after {
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        h2::after {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--gradient);
-            border-radius: 3px;
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+            margin: 15px auto;
+            border-radius: 2px;
         }
 
-        .features-grid {
+        /* Section À propos */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Objectifs */
+        .goals-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
+        .goal-card {
+            background: white;
             padding: 2rem;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 206, 201, 0.1));
-            z-index: -1;
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-
-        .feature-card p {
-            opacity: 0.8;
-            line-height: 1.6;
-        }
-
-        /* Section parallax */
-        .parallax {
-            height: 500px;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .parallax::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        .parallax-content {
-            position: relative;
-            z-index: 2;
+            border-radius: 10px;
             text-align: center;
-            max-width: 800px;
-            padding: 0 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .parallax h2 {
+        .goal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .goal-card i {
             font-size: 3rem;
+            color: #3498db;
             margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
-            background: linear-gradient(to right, var(--light), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
         }
 
-        /* Section contact */
-        .contact {
-            padding: 5rem;
-            background: var(--dark);
-            position: relative;
+        .goal-card h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
         }
 
-        .contact-form {
+        /* Formulaire de don */
+        .donation-form {
             max-width: 600px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: white;
             padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-form::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(108, 92, 231, 0.1), transparent 70%);
-            animation: rotate 20s linear infinite;
-            z-index: -1;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .form-group {
             margin-bottom: 1.5rem;
-            position: relative;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
+            color: #2c3e50;
         }
 
-        .form-control {
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .amount-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .amount-btn {
+            padding: 0.8rem 1.5rem;
+            background: #f1f1f1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .amount-btn:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .amount-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .donate-btn {
             width: 100%;
             padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            color: var(--light);
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--secondary);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: var(--gradient);
+            background: #3498db;
             color: white;
             border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            border-radius: 5px;
+            font-size: 1.1rem;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            font-size: 1rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
-            color: var(--light);
-            text-decoration: none;
-            font-size: 1.2rem;
+            gap: 0.5rem;
         }
 
-        .social-link:hover {
-            background: var(--gradient);
-            transform: translateY(-5px);
+        .donate-btn:hover {
+            background: #2980b9;
+        }
+
+        .donation-thankyou {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .donation-thankyou i {
+            font-size: 4rem;
+            color: #2ecc71;
+            margin-bottom: 1.5rem;
+        }
+
+        .donation-thankyou h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        /* Galerie */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Pied de page */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .social-links {
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #3498db;
         }
 
         .copyright {
-            opacity: 0.7;
+            margin-top: 1.5rem;
             font-size: 0.9rem;
-        }
-
-        /* Effets spéciaux */
-        .glow {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--primary), transparent 70%);
-            filter: blur(80px);
-            opacity: 0.3;
-            z-index: 0;
-        }
-
-        .glow-1 {
-            top: -150px;
-            left: -150px;
-            animation: float 8s infinite ease-in-out;
-        }
-
-        .glow-2 {
-            bottom: -100px;
-            right: -100px;
-            background: radial-gradient(circle, var(--secondary), transparent 70%);
-            animation: float 10s infinite ease-in-out 2s;
-        }
-
-        /* Animation scroll */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.6s ease-out;
-        }
-
-        .scroll-animate.visible {
-            opacity: 1;
-            transform: translateY(0);
+            opacity: 0.8;
         }
 
         /* Responsive */
-        @media (max-width: 992px) {
-            .hero {
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
                 flex-direction: column;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .donation-form {
                 padding: 2rem;
-                text-align: center;
-            }
-
-            .hero-content {
-                max-width: 100%;
-                margin-bottom: 3rem;
-            }
-
-            .hero-image {
-                position: relative;
-                width: 100%;
-                max-width: 500px;
-                transform: none;
-                margin-top: 2rem;
-            }
-
-            .features, .contact {
-                padding: 3rem 2rem;
             }
         }
 
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
+        @media (max-width: 480px) {
+            .hero-content h1 {
                 font-size: 2rem;
             }
-
-            .parallax h2 {
-                font-size: 2rem;
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .amount-buttons {
+                justify-content: center;
+            }
+            
+            .amount-btn {
+                padding: 0.6rem 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Effets de fond -->
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
-        <div class="particles" id="particles"></div>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Supportez ma Passion pour les Chats et le Jardinage</h1>
+            <p>Un projet d'amour pour les félins et la nature</p>
+        </div>
+    </header>
 
-        <!-- Header -->
-        <header>
-            <div class="logo">CREA<span style="color: var(--accent);">TIVE</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Accueil</a></li>
-                    <li><a href="#features">Fonctionnalités</a></li>
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Section Hero -->
-        <section class="hero" id="home">
-            <div class="hero-content scroll-animate">
-                <h1>Découvrez une Expérience Visuelle Époustouflante</h1>
-                <p>Plongez dans un univers où design et technologie se rencontrent pour créer quelque chose de véritablement unique et mémorable.</p>
-                <a href="#contact" class="cta-button">Commencer l'aventure</a>
-            </div>
-            <div class="hero-image scroll-animate">
-                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#6c5ce7;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#00cec9;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <path fill="url(#grad1)" d="M250,100 C350,50 450,150 400,250 C350,350 250,400 150,350 C50,300 100,150 250,100 Z" />
-                    <path fill="#fd79a8" d="M250,200 C300,180 350,220 330,270 C310,320 250,330 220,290 C190,250 200,220 250,200 Z" />
-                    <circle cx="250" cy="250" r="50" fill="white" opacity="0.8" />
-                </svg>
-            </div>
-        </section>
-
-        <!-- Section Features -->
-        <section class="features" id="features">
-            <h2 class="section-title scroll-animate">Nos Atouts Exceptionnels</h2>
-            <div class="features-grid">
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">✧</div>
-                    <h3>Design Immersif</h3>
-                    <p>Une expérience utilisateur soigneusement conçue qui captive et engage vos visiteurs dès le premier regard.</p>
-                </div>
-                <div class="feature-card scroll-animate" style="transition-delay: 0.2s">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Performances Optimales</h3>
-                    <p>Technologies de pointe garantissant des chargements ultra-rapides et une fluidité parfaite.</p>
-                </div>
-                <div class="feature-card scroll-animate" style="transition-delay: 0.4s">
-                    <div class="feature-icon">∞</div>
-                    <h3>Animations Dynamiques</h3>
-                    <p>Des effets visuels sophistiqués qui donnent vie à votre contenu sans compromettre les performances.</p>
+    <main>
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Mon Histoire</h2>
+                        <p>Passionné par les chats et le jardinage, je consacre mon temps à créer un espace harmonieux où la nature et mes compagnons félins peuvent s'épanouir ensemble. Votre soutien m'aide à maintenir cet équilibre délicat.</p>
+                        <p>Chaque don contribue à l'alimentation de mes chats, l'entretien du jardin, et la création d'espaces adaptés à leur bien-être.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Chat dans un jardin">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section Parallax -->
-        <section class="parallax" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI3BhdHRlcm4pIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')">
-            <div class="parallax-content scroll-animate">
-                <h2>L'Art Rencontre la Technologie</h2>
-                <p>Notre approche unique combine créativité artistique et expertise technique pour des résultats qui dépassent les attentes.</p>
+        <section class="goals">
+            <div class="container">
+                <h2>Comment votre don sera utilisé</h2>
+                <div class="goals-grid">
+                    <div class="goal-card">
+                        <i class="fas fa-paw"></i>
+                        <h3>Soins des Chats</h3>
+                        <p>Nourriture, soins vétérinaires et accessoires pour le bien-être de mes compagnons félins.</p>
+                    </div>
+                    <div class="goal-card">
+                        <i class="fas fa-seedling"></i>
+                        <h3>Jardin Félin</h3>
+                        <p>Plantes sans danger pour les chats, espaces de jeu et zones ombragées.</p>
+                    </div>
+                    <div class="goal-card">
+                        <i class="fas fa-tree"></i>
+                        <h3>Environnement Durable</h3>
+                        <p>Création d'un écosystème harmonieux où la nature et les chats coexistent.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Section Contact -->
-        <section class="contact" id="contact">
-            <h2 class="section-title scroll-animate">Prêt à Transformer Votre Vision ?</h2>
-            <form class="contact-form scroll-animate">
-                <div class="form-group">
-                    <label for="name">Votre Nom</label>
-                    <input type="text" id="name" class="form-control" required>
+        <section class="donation">
+            <div class="container">
+                <h2>Faites un Don</h2>
+                <p>Chaque contribution, petite ou grande, fait une réelle différence.</p>
+                
+                <div class="donation-form">
+                    <form id="donationForm">
+                        <div class="form-group">
+                            <label for="amount">Montant (€)</label>
+                            <input type="number" id="amount" min="1" step="1" placeholder="20" required>
+                        </div>
+                        
+                        <div class="amount-buttons">
+                            <button type="button" class="amount-btn" data-amount="5">5€</button>
+                            <button type="button" class="amount-btn" data-amount="10">10€</button>
+                            <button type="button" class="amount-btn" data-amount="20">20€</button>
+                            <button type="button" class="amount-btn" data-amount="50">50€</button>
+                            <button type="button" class="amount-btn" data-amount="100">100€</button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="name">Nom (optionnel)</label>
+                            <input type="text" id="name" placeholder="Votre nom">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message (optionnel)</label>
+                            <textarea id="message" placeholder="Un mot d'encouragement..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="donate-btn">Faire un Don <i class="fas fa-heart"></i></button>
+                    </form>
+                    
+                    <div class="donation-thankyou" id="thankYouMessage" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Merci pour votre générosité !</h3>
+                        <p>Votre soutien signifie beaucoup pour moi et mes compagnons félins.</p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Votre Email</label>
-                    <input type="email" id="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Votre Message</label>
-                    <textarea id="message" class="form-control" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Envoyer le Message</button>
-            </form>
+            </div>
         </section>
 
-        <!-- Footer -->
-        <footer>
-            <div class="footer-content">
-                <div class="social-links">
-                    <a href="#" class="social-link"><i>f</i></a>
-                    <a href="#" class="social-link"><i>in</i></a>
-                    <a href="#" class="social-link"><i>t</i></a>
-                    <a href="#" class="social-link"><i>ig</i></a>
+        <section class="gallery">
+            <div class="container">
+                <h2>Notre Univers</h2>
+                <div class="gallery-grid">
+                    <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Chat dans le jardin">
+                    <img src="https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Chat curieux">
+                    <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Jardin félin">
+                    <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Chat et plantes">
                 </div>
-                <p class="copyright">© 2023 Creative Design. Tous droits réservés.</p>
             </div>
-        </footer>
-    </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Merci de soutenir cette passion pour les chats et la nature</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="copyright">© 2023 Passion Féline et Jardinage - Tous droits réservés</p>
+        </div>
+    </footer>
 
     <script>
-        // Création des particules
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sélection des éléments
+            const donationForm = document.getElementById('donationForm');
+            const amountInput = document.getElementById('amount');
+            const amountButtons = document.querySelectorAll('.amount-btn');
+            const thankYouMessage = document.getElementById('thankYouMessage');
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Taille aléatoire
-                const size = Math.random() * 5 + 3;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Position aléatoire
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                // Opacité aléatoire
-                particle.style.opacity = Math.random() * 0.5 + 0.1;
-                
-                // Animation aléatoire
-                const duration = Math.random() * 20 + 10;
-                const delay = Math.random() * 5;
-                particle.style.animation = `float ${duration}s infinite ease-in-out ${delay}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-        // Animation au scroll
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.scroll-animate');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.classList.add('visible');
-                }
+            // Gestion des boutons de montant
+            amountButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const amount = this.getAttribute('data-amount');
+                    amountInput.value = amount;
+                    
+                    // Retirer la classe active de tous les boutons
+                    amountButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Ajouter la classe active au bouton cliqué
+                    this.classList.add('active');
+                });
             });
-        }
-        
-        // Effet de dégradé animé sur le bouton CTA
-        function animateGradient() {
-            const ctaButton = document.querySelector('.cta-button');
-            if (!ctaButton) return;
             
-            let angle = 0;
-            setInterval(() => {
-                angle = (angle + 1) % 360;
-                ctaButton.style.background = `linear-gradient(${angle}deg, #6c5ce7, #00cec9)`;
-            }, 50);
-        }
-        
-        // Effet de saisie automatique pour le titre
-        function typeWriterEffect() {
-            const title = document.querySelector('.hero h1');
-            if (!title) return;
-            
-            const originalText = title.textContent;
-            title.textContent = '';
-            let i = 0;
-            
-            function type() {
-                if (i < originalText.length) {
-                    title.textContent += originalText.charAt(i);
-                    i++;
-                    setTimeout(type, Math.random() * 100 + 50);
-                }
-            }
-            
-            setTimeout(type, 1000);
-        }
-        
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            animateGradient();
-            typeWriterEffect();
-            
-            // Animation initiale
-            setTimeout(() => {
-                animateOnScroll();
-            }, 500);
-        });
-        
-        // Écouteur de scroll
-        window.addEventListener('scroll', animateOnScroll);
-        
-        // Effet de curseur personnalisé
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.querySelector('.cursor');
-            if (cursor) {
-                cursor.style.left = `${e.clientX}px`;
-                cursor.style.top = `${e.clientY}px`;
-            }
-        });
-        
-        // Effet sur les liens
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                document.body.style.cursor = 'pointer';
-            });
-            link.addEventListener('mouseleave', () => {
-                document.body.style.cursor = 'default';
-            });
-        });
-        
-        // Animation du formulaire
-        const formInputs = document.querySelectorAll('.form-control');
-        formInputs.forEach(input => {
-            input.addEventListener('focus', () => {
-                input.parentElement.style.transform = 'scale(1.02)';
-                input.parentElement.style.zIndex = '10';
-            });
-            input.addEventListener('blur', () => {
-                input.parentElement.style.transform = 'scale(1)';
-                input.parentElement.style.zIndex = '1';
-            });
-        });
-        
-        // Confirmation d'envoi du formulaire
-        const contactForm = document.querySelector('.contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
+            // Soumission du formulaire
+            donationForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Animation de succès
-                contactForm.innerHTML = `
-                    <div style="text-align: center; padding: 2rem;">
-                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 1.5rem;">
-                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#00cec9"/>
-                        </svg>
-                        <h3 style="color: #00cec9; margin-bottom: 1rem;">Message envoyé avec succès !</h3>
-                        <p>Nous vous contacterons très rapidement.</p>
-                    </div>
-                `;
+                // Récupération des valeurs
+                const amount = amountInput.value;
+                const name = document.getElementById('name').value;
+                const message = document.getElementById('message').value;
                 
-                // Effet de confettis
-                createConfetti();
+                // Ici, vous pourriez ajouter une logique pour traiter le don
+                // Par exemple, envoyer les données à un serveur
+                
+                // Simulation de traitement
+                console.log('Don reçu:', { amount, name, message });
+                
+                // Afficher le message de remerciement
+                donationForm.style.display = 'none';
+                thankYouMessage.style.display = 'block';
+                
+                // Faire défiler jusqu'au message de remerciement
+                thankYouMessage.scrollIntoView({ behavior: 'smooth' });
+                
+                // Réinitialiser le formulaire après 5 secondes (pour démo)
+                setTimeout(() => {
+                    donationForm.reset();
+                    donationForm.style.display = 'block';
+                    thankYouMessage.style.display = 'none';
+                    amountButtons.forEach(btn => btn.classList.remove('active'));
+                }, 5000);
             });
-        }
-        
-        // Fonction de confettis
-        function createConfetti() {
-            const confettiContainer = document.createElement('div');
-            confettiContainer.style.position = 'fixed';
-            confettiContainer.style.top = '0';
-            confettiContainer.style.left = '0';
-            confettiContainer.style.width = '100%';
-            confettiContainer.style.height = '100%';
-            confettiContainer.style.pointerEvents = 'none';
-            confettiContainer.style.zIndex = '1000';
-            document.body.appendChild(confettiContainer);
             
-            const colors = ['#6c5ce7', '#00cec9', '#fd79a8', '#fdcb6e', '#a29bfe'];
-            
-            for (let i = 0; i < 100; i++) {
-                const confetti = document.createElement('div');
-                confetti.style.position = 'absolute';
-                confetti.style.width = '10px';
-                confetti.style.height = '10px';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.borderRadius = '50%';
-                confetti.style.left = `${Math.random() * 100}%`;
-                confetti.style.top = '-10px';
-                confetti.style.opacity = '0.8';
-                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+            // Animation au défilement
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.about-image img, .goal-card, .gallery-grid img');
                 
-                const animation = confetti.animate([
-                    { top: '-10px', opacity: 0 },
-                    { top: `${Math.random() * 100}%`, opacity: 0.8 },
-                    { top: '100%', opacity: 0 }
-                ], {
-                    duration: Math.random() * 3000 + 2000,
-                    easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)',
-                    delay: Math.random() * 1000
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
                 });
-                
-                confettiContainer.appendChild(confetti);
-                
-                animation.onfinish = () => {
-                    confetti.remove();
-                };
-            }
+            };
             
-            setTimeout(() => {
-                confettiContainer.remove();
-            }, 5000);
-        }
+            // Initialisation des styles pour l'animation
+            document.querySelectorAll('.about-image img, .goal-card, .gallery-grid img').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Écouteur d'événement de défilement
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Appel initial pour vérifier les éléments déjà visibles
+        });
     </script>
 </body>
 </html>
