@@ -3,535 +3,437 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supportez ma Passion pour les Chats et le Jardinage</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Zipper - Une histoire de patience et d'amour</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset et Base */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #faf9f7 0%, #f3f1ed 100%);
             color: #333;
-            background-color: #f9f9f9;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
         }
-
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23b89f80' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: -1;
+        }
+        
         .container {
-            width: 90%;
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
+            transition: filter 0.5s ease;
         }
-
-        /* En-tête */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url('https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        
+        .blur {
+            filter: blur(5px);
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        header {
             text-align: center;
-            color: white;
+            padding: 80px 0 40px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards 0.5s;
+        }
+        
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #2c2c2c;
             position: relative;
+            display: inline-block;
         }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 0;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: #2c3e50;
-            position: relative;
-        }
-
-        h2::after {
+        
+        h1::after {
             content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: #3498db;
-            margin: 15px auto;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: #b89f80;
+        }
+        
+        .intro {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 60px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards 1s;
+        }
+        
+        .story {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1.2s ease forwards 1.5s;
+        }
+        
+        .story p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 60px 0;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 3px;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: zoomIn 1.2s ease forwards 2s;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
             border-radius: 2px;
+            transition: transform 0.5s ease;
         }
-
-        /* Section À propos */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-image {
-            flex: 1;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .about-image img:hover {
+        
+        .image-container img:hover {
             transform: scale(1.02);
         }
-
-        /* Objectifs */
-        .goals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        
+        .caption {
+            font-style: italic;
+            color: #777;
+            margin-top: 15px;
+            font-size: 0.9rem;
         }
-
-        .goal-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
+        
+        .quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 60px 0;
+            padding: 40px 20px;
+            background-color: #f3f1ed;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards 2.5s;
         }
-
-        .goal-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: #b89f80;
+            position: absolute;
+            opacity: 0.3;
         }
-
-        .goal-card i {
-            font-size: 3rem;
-            color: #3498db;
-            margin-bottom: 1.5rem;
+        
+        .quote::before {
+            top: 10px;
+            left: 20px;
         }
-
-        .goal-card h3 {
-            margin-bottom: 1rem;
-            color: #2c3e50;
+        
+        .quote::after {
+            bottom: -20px;
+            right: 20px;
         }
-
-        /* Formulaire de don */
-        .donation-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        
+        footer {
+            text-align: center;
+            padding: 40px 0 100px;
+            color: #888;
+            font-size: 0.9rem;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards 3s;
         }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        .form-group input,
-        .form-group textarea {
+        
+        /* Notification Bar */
+        .notification-bar {
+            position: fixed;
+            bottom: -200px;
+            left: 0;
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: #3498db;
-            outline: none;
-        }
-
-        .amount-buttons {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f6f3 100%);
+            box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin: 1.5rem 0;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: bottom 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+            border-top: 1px solid rgba(184, 159, 128, 0.2);
         }
-
-        .amount-btn {
-            padding: 0.8rem 1.5rem;
-            background: #f1f1f1;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        
+        .notification-bar.active {
+            bottom: 0;
         }
-
-        .amount-btn:hover {
-            background: #3498db;
-            color: white;
-        }
-
-        .amount-btn.active {
-            background: #3498db;
-            color: white;
-        }
-
-        .donate-btn {
+        
+        .notification-content {
+            display: flex;
+            align-items: center;
+            max-width: 900px;
             width: 100%;
-            padding: 1rem;
-            background: #3498db;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .notification-text {
+            flex: 1;
+        }
+        
+        .notification-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+        
+        .notification-message {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .notification-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .offer-button {
+            background: linear-gradient(to right, #b89f80, #a58a6d);
             color: white;
             border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(184, 159, 128, 0.3);
+            white-space: nowrap;
+        }
+        
+        .offer-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(184, 159, 128, 0.4);
+        }
+        
+        .close-button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
         }
-
-        .donate-btn:hover {
-            background: #2980b9;
+        
+        .close-button:hover {
+            color: #666;
+            background-color: rgba(0, 0, 0, 0.05);
         }
-
-        .donation-thankyou {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .donation-thankyou i {
-            font-size: 4rem;
-            color: #2ecc71;
-            margin-bottom: 1.5rem;
-        }
-
-        .donation-thankyou h3 {
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        /* Galerie */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .gallery-grid img {
+        
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+            background-color: rgba(184, 159, 128, 0.2);
+            overflow: hidden;
         }
-
-        .gallery-grid img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        
+        .progress {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right, #b89f80, #a58a6d);
+            animation: progressAnimation 10s linear forwards;
         }
-
-        /* Pied de page */
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-
-        .social-links {
-            margin: 1.5rem 0;
+        
+        @keyframes fadeUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 0.5rem;
-            transition: color 0.3s ease;
+        
+        @keyframes zoomIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
         }
-
-        .social-links a:hover {
-            color: #3498db;
+        
+        @keyframes progressAnimation {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
         }
-
-        .copyright {
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Responsive */
+        
         @media (max-width: 768px) {
-            .hero-content h1 {
+            h1 {
                 font-size: 2.5rem;
             }
             
-            .hero-content p {
-                font-size: 1.2rem;
+            .story {
+                font-size: 1rem;
             }
             
-            .about-content {
+            .quote {
+                font-size: 1.3rem;
+                padding: 30px 15px;
+            }
+            
+            .notification-content {
                 flex-direction: column;
+                text-align: center;
+                gap: 15px;
             }
             
-            section {
-                padding: 3rem 0;
-            }
-            
-            .donation-form {
-                padding: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .amount-buttons {
+            .notification-actions {
+                width: 100%;
                 justify-content: center;
             }
             
-            .amount-btn {
-                padding: 0.6rem 1rem;
+            .notification-title {
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Supportez ma Passion pour les Chats et le Jardinage</h1>
-            <p>Un projet d'amour pour les félins et la nature</p>
+    <div class="container" id="main-content">
+        <header>
+            <h1>Zipper</h1>
+        </header>
+        
+        <div class="intro">
+            Une histoire de patience, de compassion et de confiance gagnée
         </div>
-    </header>
-
-    <main>
-        <section class="about">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2>Mon Histoire</h2>
-                        <p>Passionné par les chats et le jardinage, je consacre mon temps à créer un espace harmonieux où la nature et mes compagnons félins peuvent s'épanouir ensemble. Votre soutien m'aide à maintenir cet équilibre délicat.</p>
-                        <p>Chaque don contribue à l'alimentation de mes chats, l'entretien du jardin, et la création d'espaces adaptés à leur bien-être.</p>
-                    </div>
-                    <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Chat dans un jardin">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="goals">
-            <div class="container">
-                <h2>Comment votre don sera utilisé</h2>
-                <div class="goals-grid">
-                    <div class="goal-card">
-                        <i class="fas fa-paw"></i>
-                        <h3>Soins des Chats</h3>
-                        <p>Nourriture, soins vétérinaires et accessoires pour le bien-être de mes compagnons félins.</p>
-                    </div>
-                    <div class="goal-card">
-                        <i class="fas fa-seedling"></i>
-                        <h3>Jardin Félin</h3>
-                        <p>Plantes sans danger pour les chats, espaces de jeu et zones ombragées.</p>
-                    </div>
-                    <div class="goal-card">
-                        <i class="fas fa-tree"></i>
-                        <h3>Environnement Durable</h3>
-                        <p>Création d'un écosystème harmonieux où la nature et les chats coexistent.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="donation">
-            <div class="container">
-                <h2>Faites un Don</h2>
-                <p>Chaque contribution, petite ou grande, fait une réelle différence.</p>
-                
-                <div class="donation-form">
-                    <form id="donationForm">
-                        <div class="form-group">
-                            <label for="amount">Montant (€)</label>
-                            <input type="number" id="amount" min="1" step="1" placeholder="20" required>
-                        </div>
-                        
-                        <div class="amount-buttons">
-                            <button type="button" class="amount-btn" data-amount="5">5€</button>
-                            <button type="button" class="amount-btn" data-amount="10">10€</button>
-                            <button type="button" class="amount-btn" data-amount="20">20€</button>
-                            <button type="button" class="amount-btn" data-amount="50">50€</button>
-                            <button type="button" class="amount-btn" data-amount="100">100€</button>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="name">Nom (optionnel)</label>
-                            <input type="text" id="name" placeholder="Votre nom">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message (optionnel)</label>
-                            <textarea id="message" placeholder="Un mot d'encouragement..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="donate-btn">Faire un Don <i class="fas fa-heart"></i></button>
-                    </form>
-                    
-                    <div class="donation-thankyou" id="thankYouMessage" style="display: none;">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>Merci pour votre générosité !</h3>
-                        <p>Votre soutien signifie beaucoup pour moi et mes compagnons félins.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="gallery">
-            <div class="container">
-                <h2>Notre Univers</h2>
-                <div class="gallery-grid">
-                    <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Chat dans le jardin">
-                    <img src="https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Chat curieux">
-                    <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Jardin félin">
-                    <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Chat et plantes">
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>Merci de soutenir cette passion pour les chats et la nature</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-            <p class="copyright">© 2023 Passion Féline et Jardinage - Tous droits réservés</p>
+        
+        <div class="story">
+            <p>Pendant plus de cinq ans, j'ai nourri un chat que je ne pouvais pas toucher. Je l'avais appelé Zipper parce qu'il disparaissait à la seconde où je m'approchais trop. Il vivait dans l'ombre. Il n'avait pas besoin de moi. Du moins, c'est ce que je pensais.</p>
+            
+            <p>Un matin, je suis sortie et je l'ai vu allongé, immobile. Il ne courait pas. Il avait une profonde blessure près de l'œil. J'ai cru qu'il allait mourir. Je l'ai mis dans une cage de transport et emmené chez un vétérinaire.</p>
+            
+            <p>Ils l'ont gardé quatre jours. Je les avais prévenus : c'est un animal sauvage, soyez prudents. Mais quand je suis venu le chercher, une technicienne le tenait dans ses bras. Calme. Doux. Rien à voir avec le chat sauvage que je connaissais. Il s'est avéré que la « blessure » ​​était un kyste rompu. La douleur l'avait apprivoisé, mais quelque chose d'autre persistait.</p>
+            
+            <p>Il n'est jamais retourné dans le jardin. Il est devenu un membre à part entière de la maison. Toujours nerveux. Toujours prompt à donner des coups. Mais affectueux à sa manière.</p>
         </div>
-    </footer>
+        
+        <div class="quote">
+            Il a choisi le moment. Il m'a choisie.
+        </div>
+        
+        <div class="image-container">
+            <img src="image1.jpg" alt="Zipper, le chat qui a appris à faire confiance">
+            <div class="caption">Zipper, après avoir trouvé son foyer pour toujours</div>
+        </div>
+        
+        <footer>
+            <p>Une histoire sur la patience et le pouvoir transformateur de la compassion</p>
+        </footer>
+    </div>
+    
+    <!-- Notification Bar -->
+    <div class="notification-bar" id="notification">
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <div class="notification-content">
+            <div class="notification-text">
+                <h3 class="notification-title">Continuez votre lecture</h3>
+                <p class="notification-message">Découvrez d'autres histoires captivantes en remplissant notre offre spéciale de 10 secondes</p>
+            </div>
+            <div class="notification-actions">
+                <button class="offer-button" id="offer-button">
+                    <i class="fas fa-gift"></i> Voir l'offre
+                </button>
+                <button class="close-button" id="close-button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Redirection simple après 5 secondes
-setTimeout(function() {
-    window.location.href = "https://serenitymareaffection.com/g7wm7b5f7?key=79b6cbb387b0f8d1643f8894d4597104"; // Remplacez par votre URL de destination
-}, 500); // 000 millisecondes = 5 secondes
         document.addEventListener('DOMContentLoaded', function() {
-            // Sélection des éléments
-            const donationForm = document.getElementById('donationForm');
-            const amountInput = document.getElementById('amount');
-            const amountButtons = document.querySelectorAll('.amount-btn');
-            const thankYouMessage = document.getElementById('thankYouMessage');
+            const mainContent = document.getElementById('main-content');
+            const notification = document.getElementById('notification');
+            const closeButton = document.getElementById('close-button');
+            const offerButton = document.getElementById('offer-button');
+            const progressBar = document.getElementById('progress');
             
-            // Gestion des boutons de montant
-            amountButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const amount = this.getAttribute('data-amount');
-                    amountInput.value = amount;
+            let notificationShown = false;
+            let countdownValue = 10;
+            
+            // Afficher la notification après 7 secondes
+            setTimeout(function() {
+                if (!notificationShown) {
+                    mainContent.classList.add('blur');
+                    notification.classList.add('active');
+                    notificationShown = true;
                     
-                    // Retirer la classe active de tous les boutons
-                    amountButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Ajouter la classe active au bouton cliqué
-                    this.classList.add('active');
-                });
+                    // Démarrer le compte à rebours visuel
+                    progressBar.style.animation = 'progressAnimation 10s linear forwards';
+                }
+            }, 7000);
+            
+            // Gérer le clic sur le bouton de fermeture
+            closeButton.addEventListener('click', function() {
+                notification.classList.remove('active');
+                mainContent.classList.remove('blur');
+                notificationShown = false;
             });
             
-            // Soumission du formulaire
-            donationForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Récupération des valeurs
-                const amount = amountInput.value;
-                const name = document.getElementById('name').value;
-                const message = document.getElementById('message').value;
-                
-                // Ici, vous pourriez ajouter une logique pour traiter le don
-                // Par exemple, envoyer les données à un serveur
-                
-                // Simulation de traitement
-                console.log('Don reçu:', { amount, name, message });
-                
-                // Afficher le message de remerciement
-                donationForm.style.display = 'none';
-                thankYouMessage.style.display = 'block';
-                
-                // Faire défiler jusqu'au message de remerciement
-                thankYouMessage.scrollIntoView({ behavior: 'smooth' });
-                
-                // Réinitialiser le formulaire après 5 secondes (pour démo)
-                setTimeout(() => {
-                    donationForm.reset();
-                    donationForm.style.display = 'block';
-                    thankYouMessage.style.display = 'none';
-                    amountButtons.forEach(btn => btn.classList.remove('active'));
-                }, 5000);
+            // Gérer le clic sur le bouton d'offre
+            offerButton.addEventListener('click', function() {
+                // Rediriger vers la page d'offre
+                alert("Redirection vers l'offre spéciale!");
+                // window.location.href = "https://exemple.com/offre-speciale";
             });
-            
-            // Animation au défilement
-            const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.about-image img, .goal-card, .gallery-grid img');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.2;
-                    
-                    if (elementPosition < screenPosition) {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }
-                });
-            };
-            
-            // Initialisation des styles pour l'animation
-            document.querySelectorAll('.about-image img, .goal-card, .gallery-grid img').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            });
-            
-            // Écouteur d'événement de défilement
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll(); // Appel initial pour vérifier les éléments déjà visibles
         });
     </script>
 </body>
 </html>
-
-
-
